@@ -33,6 +33,34 @@ yarn-error.*
 # local env files
 .env*.local
 
+# dotenv (local secrets)
+.env
+
+# Expo shared and logs
+.expo-shared/
+.expo/logs/
+
+# IDE/editor directories
+.vscode/
+.idea/
+
+# Gradle / Android caches
+.gradle/
+android/.gradle/
+android/**/build/
+
+# iOS build pods (if ios/ is checked in by mistake)
+ios/**/build/
+ios/**/Pods/
+
+# coverage
+coverage/
+.nyc_output/
+
+# Misc
+*.log
+
+
 # typescript
 *.tsbuildinfo
 
