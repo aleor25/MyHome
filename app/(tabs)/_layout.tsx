@@ -1,12 +1,12 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
-
-// Asumo que tus colores están en esta ruta
 import { Colors } from '@/constants/theme';
 import { Feather } from '@expo/vector-icons';
+import { Tabs } from 'expo-router';
+import React from 'react';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 export default function TabLayout() {
   const colors = Colors.light;
+  const insets = useSafeAreaInsets();
 
   return (
     <Tabs
@@ -15,7 +15,7 @@ export default function TabLayout() {
         tabBarActiveTintColor: '#FFFFFF',
         tabBarActiveBackgroundColor: colors.tint,
         tabBarInactiveTintColor: colors.tabIconDefault,
-        tabBarInactiveBackgroundColor: colors.navbar, 
+        tabBarInactiveBackgroundColor: colors.navbar,
 
         tabBarItemStyle: {
           marginHorizontal: 10,
@@ -27,10 +27,11 @@ export default function TabLayout() {
         // Estilo de la barra de navegación principal
         tabBarStyle: {
           backgroundColor: colors.navbar,
-          height: 65,
-          elevation: 0,
+          height: 60 + insets.bottom,
           borderTopWidth: 1,
           borderTopColor: colors.border,
+          elevation: 0,
+          paddingBottom: insets.bottom,
         },
       }}>
       
