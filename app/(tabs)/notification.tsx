@@ -1,5 +1,5 @@
 // En: app/(tabs)/notificaciones.tsx
-import { Notificacion, NotificacionItem } from '@/components/notifications/NotificationItem';
+import { Notificacion, NotificationItem } from '@/components/notifications/NotificationItem';
 import { Chip } from '@/components/ui/Chip';
 import { ThemedText, ThemedView } from '@/components/ui/themed';
 import { Stack } from 'expo-router';
@@ -47,7 +47,7 @@ export default function PantallaNotificaciones() {
     );
 
     const renderItem = ({ item }: { item: Notificacion }) => (
-        <NotificacionItem item={item} />
+        <NotificationItem item={item} />
     );
 
     const renderListHeader = () => (
