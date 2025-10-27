@@ -1,6 +1,6 @@
-// En: components/ui/Input.tsx
-import { ThemedText, ThemedView } from '@/components/ui/themed';
-import Colors from '@/constants/Colors';
+import { ThemedText } from '@/components/ui/ThemedText';
+import { ThemedView } from '@/components/ui/ThemedView';
+import { useThemeColor } from '@/hooks/useThemeColor';
 import React from 'react';
 import { StyleSheet, TextInput, TextInputProps } from 'react-native';
 
@@ -9,16 +9,16 @@ type InputProps = TextInputProps & {
 };
 
 export function Input({ label, style, ...rest }: InputProps) {
-    const theme = 'light'; // O usa tu hook
-    const borderColor = Colors[theme].border;
-    const cardColor = Colors[theme].card;
-    const placeholderColor = Colors[theme].textSecondary;
+    const borderColor = useThemeColor({}, 'border');
+    const backgroundColor = useThemeColor({}, 'surface');
+    // Usamos 'textSecondary' para el color del placeholder
+    const placeholderColor = useThemeColor({}, 'textSecondary');
 
     return (
         <ThemedView style={styles.container}>
-            <ThemedText type="label" style={styles.label}>{label}</ThemedText>
+            <ThemedText type="defaultSemiBold" style={styles.label}>{label}</ThemedText>
             <TextInput
-                style={[styles.input, { borderColor, backgroundColor: cardColor }, style]}
+                style={[styles.input, { borderColor, backgroundColor, color: useThemeColor({}, 'text') }, style]}
                 placeholderTextColor={placeholderColor}
                 {...rest}
             />

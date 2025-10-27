@@ -1,25 +1,29 @@
-// --- COLORES BASE ---
-
-// Azul primario para botones, links, íconos activos
-const tintColorLight = '#0079ab';
-
-export const Colors = {
+export const ThemeColors = {
   light: {
-    text: '#000000', // Letras de color negro
-    textSecondary: '#333333', // Gris oscuro para texto secundario
-    background: '#f5fcfa', // Fondo general de la app
-    navbar: '#eaf8f6', // Fondo de la Navbar y las tarjetas
-    tint: tintColorLight,
-    tabIconDefault: '#043641', // Color de iconos inactivos
-    tabIconSelected: tintColorLight,
-    border: '#D1D1D6', // Borde gris claro
-
-    // Colores de variantes (mantenemos los anteriores)
-    primary: tintColorLight,
+    primary: '#0079ab',
     secondary: '#E0F0FF',
     danger: '#FF3B30',
     success: '#34C759',
     warning: '#FFCC00',
+    text: '#000000',
+    textSecondary: '#333333',
+    background: '#f5fcfa',
+    surface: '#eaf8f6',
+    icon: '#043641',
+    border: '#D1D1D6',
   },
-  // El objeto 'dark' ha sido eliminado.
+
+  dark: {
+    primary: '#0079ab',
+    secondary: '#0A2A4A',
+    danger: '#FF453A',
+    success: '#30D158',
+    warning: '#FFD60A',
+    text: '#FFFFFF',
+    textSecondary: '#8E8E93',
+    background: '#000000',
+    surface: '#1C1C1E',
+    icon: '#7A9A9F',
+    border: '#38383A',
+  }
 };

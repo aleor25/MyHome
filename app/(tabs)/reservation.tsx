@@ -4,8 +4,8 @@ import { StyleSheet } from 'react-native';
 
 // Voy a usar las mismas rutas de importación que tenías
 // en tu archivo con errores, asumiendo que estos componentes existen:
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/ui/themed-view';
+import { ThemedText } from '@/components/ui/ThemedText';
+import { ThemedView } from '@/components/ui/ThemedView';
 
 /**
  * Esta es la pantalla de 'Reservas'.
@@ -18,9 +18,7 @@ export default function ReservasScreen() {
     <ThemedView style={styles.container}>
 
       {/* Esto establece el título en la cabecera de la app */}
-      <Stack.Screen options={{ title: 'Mis Reservas' }} />
-
-      <ThemedText type="title">Mis Reservas</ThemedText>
+      <Stack.Screen options={{ title: 'Reservas' }} />
 
       <ThemedText style={styles.subtitle}>
         Aquí se mostrará la lista de reservas pasadas y futuras.

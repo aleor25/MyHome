@@ -1,6 +1,6 @@
 // En: components/ui/Themed.tsx (o puedes tener ThemedText.tsx y ThemedView.tsx separados)
 
-import { useThemeColor } from '@/hooks/use-theme-color'; // Asumo que este hook existe
+import { useThemeColor } from '@/hooks/useThemeColor'; // Asumo que este hook existe
 import { StyleSheet, Text, TextProps, View, ViewProps } from 'react-native';
 
 // --- THEMED VIEW ---
@@ -11,10 +11,9 @@ export type ThemedViewProps = ViewProps & {
 };
 
 export function ThemedView({ style, lightColor, darkColor, variant = 'default', ...rest }: ThemedViewProps) {
-    // Solo se permite 'background' como colorName
     const backgroundColor = useThemeColor(
         { light: lightColor, dark: darkColor },
-        'background'
+        variant === 'card' ? 'surface' : 'background'
     );
 
     return <View style={[{ backgroundColor }, style]} {...rest} />;
@@ -32,8 +31,9 @@ export type ThemedTextProps = TextProps & {
 
 export function ThemedText({ style, lightColor, darkColor, type = 'default', ...rest }: ThemedTextProps) {
     // Solo se permite 'text' o 'tint' como colorName
-    const color = useThemeColor({ light: lightColor, dark: darkColor },
-        type === 'link' ? 'tint' : 'text'
+    const color = useThemeColor(
+        { light: lightColor, dark: darkColor },
+        type === 'link' ? 'primary' : 'text'
     );
 
     return (
@@ -67,16 +67,16 @@ const styles = StyleSheet.create({
         fontWeight: '600',
     },
     label: {
-        fontSize: 14, // ej. "Correo electrónico" [cite: 4]
-        color: '#8A8A8E', // Forzado a textSecondary
+        fontSize: 14,
+        // El color se aplica mediante useThemeColor
     },
     link: {
         fontSize: 16,
         fontWeight: '500',
-        color: '#007AFF', // Forzado a tint
+        // El color se aplica mediante useThemeColor
     },
     caption: {
         fontSize: 12,
-        color: '#8A8A8E', // ej. "Tus datos están protegidos..." [cite: 64]
+        // El color se aplica mediante useThemeColor
     },
 });

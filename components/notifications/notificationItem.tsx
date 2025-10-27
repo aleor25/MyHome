@@ -1,7 +1,7 @@
-// En: components/notificaciones/NotificacionItem.tsx
-import { ThemedText, ThemedView } from '@/components/ui/themed';
-import { useThemeColor } from '@/hooks/use-theme-color';
-import { Ionicons } from '@expo/vector-icons'; // O tu librería de iconos
+import { ThemedText } from '@/components/ui/ThemedText';
+import { ThemedView } from '@/components/ui/ThemedView';
+import { useThemeColor } from '@/hooks/useThemeColor';
+import { Ionicons } from '@expo/vector-icons';
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
@@ -24,28 +24,28 @@ const iconMap = {
     },
     recordatorio: {
         name: 'calendar-outline',
-        color: 'tint',
+        color: 'primary',
     },
     pago: {
         name: 'card-outline',
-        color: 'warning', // Puedes añadir 'warning' a tus colores
+        color: 'warning',
     },
 };
 
-export function NotificacionItem({ item }: NotificacionItemProps) {
+export function NotificationItem({ item }: NotificacionItemProps) { // <--- RENOMBRADO AQUÍ
     const iconConfig = iconMap[item.type] || iconMap.recordatorio;
     const iconColor = useThemeColor({}, iconConfig.color as any);
 
     return (
-        <ThemedView style={styles.card} variant="card">
+        <ThemedView style={styles.card}>
             <Ionicons name={iconConfig.name as any} size={24} color={iconColor} style={styles.icon} />
 
             <View style={styles.content}>
                 <ThemedText style={styles.title}>{item.title}</ThemedText>
-                <ThemedText type="caption" style={styles.description}>{item.description}</ThemedText>
+                <ThemedText style={styles.description}>{item.description}</ThemedText>
             </View>
 
-            <ThemedText type="caption" style={styles.time}>{item.time}</ThemedText>
+            <ThemedText style={styles.time}>{item.time}</ThemedText>
         </ThemedView>
     );
 }
