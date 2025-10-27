@@ -33,6 +33,8 @@ export default function TabLayout() {
           borderTopColor: colors.border,
         },
       }}>
+      
+      {/* Pestaña de Inicio (Home) */}
       <Tabs.Screen
         name="home"
         options={{
@@ -42,6 +44,23 @@ export default function TabLayout() {
           ),
         }}
       />
+
+      ⭐️ NUEVA PESTAÑA PARA RESEÑAS ⭐️
+      {/* El nombre debe coincidir con el nombre del directorio: 'reviews'.
+         Esto cargará el stack (o la pantalla) definida en 'app/(tabs)/reviews/'.
+      */}
+      <Tabs.Screen
+        name="reviews" // 👈 Nombre del directorio 'reviews'
+        options={{
+          title: 'Reseñas',
+          tabBarIcon: ({ color }) => (
+            <Feather name="message-square" size={24} color={color} /> // O 'star'
+          ),
+          headerShown: false, // Opcional: Ocultar el encabezado de las pestañas si el stack interno lo maneja
+        }}
+      />
+      
+      {/* Pestaña de Reservas */}
       <Tabs.Screen
         name="reservation"
         options={{
@@ -51,6 +70,8 @@ export default function TabLayout() {
           ),
         }}
       />
+      
+      {/* Pestaña de Avisos */}
       <Tabs.Screen
         name="notification"
         options={{
@@ -60,6 +81,8 @@ export default function TabLayout() {
           ),
         }}
       />
+      
+      {/* Pestaña de Perfil */}
       <Tabs.Screen
         name="profile"
         options={{
