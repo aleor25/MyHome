@@ -4,7 +4,7 @@
     "slug": "MyHome",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/images/isotype.png",
     "scheme": "myhome",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
@@ -13,27 +13,26 @@
     },
     "android": {
       "adaptiveIcon": {
-        "backgroundColor": "#f5fcfa",
-        "foregroundImage": "./assets/images/logo.png",
-        "backgroundImage": "./assets/images/logo.png",
-        "monochromeImage": "./assets/images/logo.png"
+        "backgroundColor": "#f3fbf8",
+        "foregroundImage": "./assets/images/isotype.png",
+        "monochromeImage": "./assets/images/isotype.png"
       },
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false
     },
     "web": {
       "output": "static",
-      "favicon": "./assets/images/favicon.png"
+      "favicon": "./assets/images/isotype.png"
     },
     "plugins": [
       "expo-router",
       [
         "expo-splash-screen",
         {
-          "image": "./assets/images/splash-icon.png",
+          "image": "./assets/images/logo.png",
           "imageWidth": 200,
           "resizeMode": "contain",
-          "backgroundColor": "#ffffff",
+          "backgroundColor": "#f3fbf8",
           "dark": {
             "backgroundColor": "#000000"
           }
