@@ -1,6 +1,6 @@
 // En: app/(tabs)/notificaciones.tsx
-import { Notificacion, NotificacionItem } from '@/components/notifications/notificationItem';
-import { Chip } from '@/components/ui/chip';
+import { Notificacion, NotificacionItem } from '@/components/notifications/NotificationItem';
+import { Chip } from '@/components/ui/Chip';
 import { ThemedText, ThemedView } from '@/components/ui/themed';
 import { Stack } from 'expo-router';
 import React, { useState } from 'react';

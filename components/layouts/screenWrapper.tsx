@@ -1,5 +1,4 @@
-// En: components/layouts/ScreenWrapper.tsx
-import { ThemedView, ThemedViewProps } from '@/components/ui/themed';
+import { ThemedView, type ThemedViewProps } from '@/components/ui/ThemedView'; // <--- CORREGIDO
 import React from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -19,7 +18,7 @@ export function ScreenWrapper({ children, scrollable, style, ...rest }: ScreenWr
                 { paddingTop: insets.top, paddingBottom: insets.bottom },
                 style,
             ]}
-            variant="default" // Fondo gris claro
+            // Usar 'background' para el fondo de la pantalla (tu color menta)
             {...rest}
         >
             {children}

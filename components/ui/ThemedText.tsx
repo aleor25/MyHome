@@ -1,6 +1,6 @@
 import { StyleSheet, Text, type TextProps } from 'react-native';
 
-import { useThemeColor } from '@/hooks/use-theme-color';
+import { useThemeColor } from '@/hooks/useThemeColor';
 
 export type ThemedTextProps = TextProps & {
   lightColor?: string;
@@ -37,24 +37,26 @@ const styles = StyleSheet.create({
   default: {
     fontSize: 16,
     lineHeight: 24,
+    fontFamily: 'NotoSans_400Regular',
   },
   defaultSemiBold: {
     fontSize: 16,
     lineHeight: 24,
-    fontWeight: '600',
+    fontFamily: 'NotoSans_700Bold',
   },
   title: {
     fontSize: 32,
-    fontWeight: 'bold',
+    fontFamily: 'NotoSans_700Bold',
     lineHeight: 32,
   },
   subtitle: {
     fontSize: 20,
-    fontWeight: 'bold',
+    fontFamily: 'NotoSans_700Bold',
   },
   link: {
     lineHeight: 30,
     fontSize: 16,
     color: '#0a7ea4',
+    fontFamily: 'NotoSans_400Regular',
   },
 });
