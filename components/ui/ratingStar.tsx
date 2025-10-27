@@ -1,5 +1,3 @@
-// En: components/ui/RatingStars.tsx
-import Colors from '@/constants/Colors';
 import { Ionicons } from '@expo/vector-icons'; // O tu librería de iconos
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
@@ -11,8 +9,8 @@ type RatingStarsProps = {
 
 export function RatingStars({ rating, size = 16 }: RatingStarsProps) {
     const theme = 'light';
-    const starColor = Colors[theme].warning;
-    const emptyColor = Colors[theme].border;
+    const starColor = ThemeColors[theme].warning;
+    const emptyColor = ThemeColors[theme].border;
 
     const stars = [];
     for (let i = 1; i <= 5; i++) {

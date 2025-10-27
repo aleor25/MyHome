@@ -1,5 +1,4 @@
-// En: components/ui/Button.tsx
-import Colors from '@/constants/Colors'; // Importa la paleta
+import { useThemeColor } from '@/hooks/useThemeColor';
 import React from 'react';
 import { ActivityIndicator, StyleSheet, Text, TouchableOpacity, ViewStyle } from 'react-native';
 
@@ -14,47 +13,50 @@ type ButtonProps = {
 };
 
 export function Button({ title, onPress, variant = 'primary', loading, style }: ButtonProps) {
-    const theme = 'light'; // O usa tu hook de tema
+    const primaryColor = useThemeColor({}, 'primary');
+    const secondaryColor = useThemeColor({}, 'secondary');
+    const dangerColor = useThemeColor({}, 'danger');
+    const successColor = useThemeColor({}, 'success');
 
-    const getColors = () => {
-        switch(variant) {
+    const getThemeColors = () => {
+        switch (variant) {
             case 'primary':
-                return { bg: Colors[theme].primary, text: '#FFF' };
+                return { bg: primaryColor, text: '#FFFFFF' };
             case 'secondary':
-                return { bg: Colors[theme].secondary, text: Colors[theme].primary };
+                return { bg: secondaryColor, text: primaryColor };
             case 'danger':
-                return { bg: Colors[theme].danger, text: '#FFF' };
+                return { bg: dangerColor, text: '#FFFFFF' };
             case 'success':
-                return { bg: Colors[theme].success, text: '#FFF' };
+                return { bg: successColor, text: '#FFFFFF' };
             case 'ghost':
-                return { bg: 'transparent', text: Colors[theme].primary };
+                return { bg: 'transparent', text: primaryColor };
             default:
-                return { bg: Colors[theme].primary, text: '#FFF' };
+                return { bg: primaryColor, text: '#FFFFFF' };
         }
     };
 
-const { bg, text } = getColors();
+    const { bg, text } = getThemeColors();
 
-return (
-    <TouchableOpacity
-        style={[styles.button, { backgroundColor: bg }, style]}
-        onPress={onPress}
-        disabled={loading}
-    >
-        {loading ? (
-            <ActivityIndicator color={text} />
-        ) : (
-            <Text style={[styles.text, { color: text }]}>{title}</Text>
-        )}
-    </TouchableOpacity>
-);
+    return (
+        <TouchableOpacity
+            style={[styles.button, { backgroundColor: bg }, style]}
+            onPress={onPress}
+            disabled={loading}
+        >
+            {loading ? (
+                <ActivityIndicator color={text} />
+            ) : (
+                <Text style={[styles.text, { color: text }]}>{title}</Text>
+            )}
+        </TouchableOpacity>
+    );
 }
 
 const styles = StyleSheet.create({
     button: {
         paddingVertical: 16,
         paddingHorizontal: 24,
-        borderRadius: 28, // Muy redondeado (píldora)
+        borderRadius: 28,
         alignItems: 'center',
         justifyContent: 'center',
         minHeight: 56,

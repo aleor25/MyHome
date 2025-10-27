@@ -1,4 +1,4 @@
-import { Colors } from '@/constants/theme';
+import { ThemeColors } from '@/constants/theme';
 import { Feather } from '@expo/vector-icons';
 import { Stack } from 'expo-router';
 import React from 'react';
@@ -12,7 +12,7 @@ import { StyleSheet } from 'react-native';
 import { ThemedText, ThemedView } from '@/components/ui/themed';
 
 export default function PerfilScreen() {
-    const colors = Colors.light;
+    const colors = ThemeColors.light;
 
     return (
         // ThemedView debería aplicar automáticamente tu color de fondo 'f3fbf8'
@@ -25,7 +25,7 @@ export default function PerfilScreen() {
             <Feather
                 name="user" // Ícono de "usuario" para el perfil
                 size={48}
-                color={colors.tabIconDefault} // Tu color de ícono oscuro
+                color={colors.icon} // Tu color de ícono oscuro
                 style={styles.icon}
             />
 
@@ -58,6 +58,6 @@ const styles = StyleSheet.create({
     },
     subtitle: {
         textAlign: 'center',
-        color: Colors.light.danger // Un gris más sutil
+        color: ThemeColors.light.danger // Un gris más sutil
     },
 });
