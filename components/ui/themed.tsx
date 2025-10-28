@@ -53,19 +53,6 @@ export function ThemedText({ style, lightColor, darkColor, type = 'default', ...
     );
 }
 
-export const ThemeColors = {
-  light: {
-    primary: '#007AFF',
-    warning: '#FFD700',  // color dorado para estrellas llenas
-    border: '#CCCCCC',   // color gris para estrellas vacías
-  },
-  dark: {
-    primary: '#0A84FF',
-    warning: '#FFC107',  // dorado más cálido
-    border: '#555555',   // gris oscuro
-  },
-};
-
 const styles = StyleSheet.create({
     default: {
         fontSize: 16,

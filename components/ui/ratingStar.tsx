@@ -7,15 +7,6 @@ type RatingStarsProps = {
     size?: number;
 };
 
-const ThemeColors = {
-  light: {
-    primary: '#FFD700',
-  },
-  dark: {
-    primary: '#FFA500',
-  },
-};
-
 export function RatingStars({ rating, size = 16 }: RatingStarsProps) {
     const theme = 'light';
     const starColor = ThemeColors[theme].warning;

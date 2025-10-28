@@ -12,7 +12,7 @@ export default function RegisterScreen({ navigation }: any) {
   const handleRegister = async () => {
     setError(""); // Limpia errores anteriores
 
-    // 🔹 Validaciones básicas
+    // Validaciones básicas
     if (!email || !password) {
       setError("Por favor ingresa correo y contraseña.");
       return;

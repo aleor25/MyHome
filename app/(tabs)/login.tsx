@@ -13,7 +13,7 @@ export default function LoginScreen() {
   const handleLogin = async () => {
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      // ✅ Redirige a las pestañas principales
+      // Redirige a las pestañas principales
       router.replace("/(tabs)/home");
     } catch (err: any) {
       setError(err.message);
