@@ -1,5 +1,5 @@
 // En: components/ui/Chip.tsx
-import { useThemeColor } from '@/hooks/use-theme-color';
+import { useThemeColor } from '@/hooks/useThemeColor';
 import React from 'react';
 import { StyleSheet, TouchableOpacity, ViewStyle } from 'react-native';
 import { ThemedText } from './themed';
@@ -12,20 +12,13 @@ type ChipProps = {
 };
 
 export function Chip({ title, onPress, active = false, style }: ChipProps) {
-    // Colores basados en el estado 'active'
     const backgroundColor = useThemeColor(
-        {
-            light: active ? '#1C1C1E' : '#FFFFFF',
-            dark: active ? '#E5E5E7' : '#2C2C2E'
-        },
-        'background'
+        {},
+        active ? 'primary' : 'surface'
     );
 
     const textColor = useThemeColor(
-        {
-            light: active ? '#FFFFFF' : '#1C1C1E',
-            dark: active ? '#000000' : '#FFFFFF'
-        },
+        {},
         active ? 'background' : 'text'
     );
 

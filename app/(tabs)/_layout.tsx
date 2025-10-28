@@ -1,33 +1,94 @@
+import { Feather } from '@expo/vector-icons';
 import { Tabs } from 'expo-router';
 import React from 'react';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { HapticTab } from '@/components/ui/haptic-tab';
-import { IconSymbol } from '@/components/ui/icon-symbol';
-import { Colors } from '@/constants/theme';
-import { useColorScheme } from '@/hooks/use-color-scheme';
+import { useAppTheme } from '@/hooks/useAppTheme';
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
+  const colors = useAppTheme();
+  const insets = useSafeAreaInsets();
 
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
-        tabBarButton: HapticTab,
+
+        // Estilos Globales para la cabecera
+        headerTitleStyle: {
+          fontFamily: 'NotoSans_700Bold', // Aplica la fuente al título
+        },
+        headerStyle: {
+          backgroundColor: colors.surface, // Aplica el color de fondo del tema
+        },
+        headerTintColor: colors.text, // Aplica el color de texto del tema
+
+        // Estilos Globales para pestaña activa
+        tabBarActiveTintColor: '#FFFFFF',
+        tabBarActiveBackgroundColor: colors.primary,
+
+        // Estilos Globales para pestaña inactiva
+        tabBarInactiveTintColor: colors.icon,
+        tabBarInactiveBackgroundColor: colors.surface,
+
+        tabBarItemStyle: {
+          marginHorizontal: 10,
+          marginVertical: 5,
+          borderRadius: 15,
+          overflow: 'hidden',
+        },
+
+        tabBarLabelStyle: {
+          fontFamily: 'NotoSans_700Bold',
+        },
+
+        // Estilo de la barra de navegación principal
+        tabBarStyle: {
+          backgroundColor: colors.surface,
+          height: 60 + insets.bottom,
+          borderTopWidth: 1,
+          borderTopColor: colors.border,
+          elevation: 0,
+          paddingBottom: insets.bottom,
+        },
       }}>
       <Tabs.Screen
-        name="index"
+        name="home"
         options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          title: 'Inicio',
+          headerShown: true,
+          tabBarIcon: ({ color }) => (
+            <Feather name="home" size={24} color={color} />
+          ),
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="reservation"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          title: 'Reservas',
+          headerShown: true,
+          tabBarIcon: ({ color }) => (
+            <Feather name="calendar" size={24} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="notification"
+        options={{
+          title: 'Avisos',
+          headerShown: true,
+          tabBarIcon: ({ color }) => (
+            <Feather name="bell" size={24} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="profile"
+        options={{
+          title: 'Perfil',
+          headerShown: true,
+          tabBarIcon: ({ color }) => (
+            <Feather name="user" size={24} color={color} />
+          ),
         }}
       />
     </Tabs>
