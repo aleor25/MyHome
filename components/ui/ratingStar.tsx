@@ -1,3 +1,4 @@
+import { ThemeColors } from '@/constants/theme';
 import { Ionicons } from '@expo/vector-icons'; // O tu librería de iconos
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
