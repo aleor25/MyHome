@@ -1,4 +1,3 @@
-// En: components/ui/Chip.tsx
 import { useThemeColor } from '@/hooks/useThemeColor';
 import React from 'react';
 import { StyleSheet, TouchableOpacity, ViewStyle } from 'react-native';

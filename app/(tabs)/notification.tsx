@@ -1,7 +1,6 @@
 import { ScreenWrapper } from '@/components/layouts/ScreenWrapper';
 import { Notificacion, NotificationItem } from '@/components/notifications/NotificationItem';
-import { Chip } from '@/components/ui/Chip';
-import { ThemedText } from '@/components/ui/ThemedText';
+import { Chip, ThemedText } from '@/components/ui';
 import { Stack } from 'expo-router';
 import React, { useState } from 'react';
 import { ScrollView, SectionList, StyleSheet } from 'react-native';

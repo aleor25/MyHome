@@ -8,7 +8,7 @@ type RatingStarsProps = {
     size?: number;
 };
 
-export function RatingStars({ rating, size = 16 }: RatingStarsProps) {
+export function RatingStar({ rating, size = 16 }: RatingStarsProps) {
     const theme = 'light';
     const starColor = ThemeColors[theme].warning;
     const emptyColor = ThemeColors[theme].border;
