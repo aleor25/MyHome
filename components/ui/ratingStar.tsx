@@ -1,3 +1,4 @@
+import { ThemeColors } from '@/constants/theme';
 import { Ionicons } from '@expo/vector-icons'; // O tu librería de iconos
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
@@ -7,7 +8,7 @@ type RatingStarsProps = {
     size?: number;
 };
 
-export function RatingStars({ rating, size = 16 }: RatingStarsProps) {
+export function RatingStar({ rating, size = 16 }: RatingStarsProps) {
     const theme = 'light';
     const starColor = ThemeColors[theme].warning;
     const emptyColor = ThemeColors[theme].border;
