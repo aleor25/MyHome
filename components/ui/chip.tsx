@@ -1,8 +1,7 @@
-// En: components/ui/Chip.tsx
 import { useThemeColor } from '@/hooks/useThemeColor';
 import React from 'react';
 import { StyleSheet, TouchableOpacity, ViewStyle } from 'react-native';
-import { ThemedText } from './themed';
+import { ThemedText } from './ThemedText';
 
 type ChipProps = {
     title: string;

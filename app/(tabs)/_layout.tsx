@@ -1,9 +1,8 @@
+import { useAppTheme } from '@/hooks/useAppTheme';
 import { Feather } from '@expo/vector-icons';
 import { Tabs } from 'expo-router';
 import React from 'react';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-
-import { useAppTheme } from '@/hooks/useAppTheme';
 
 export default function TabLayout() {
   const colors = useAppTheme();
@@ -12,21 +11,17 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-
-        // Estilos Globales para la cabecera
         headerTitleStyle: {
-          fontFamily: 'NotoSans_700Bold', // Aplica la fuente al título
+          fontFamily: 'NotoSans_700Bold',
         },
         headerStyle: {
-          backgroundColor: colors.surface, // Aplica el color de fondo del tema
+          backgroundColor: colors.surface,
         },
-        headerTintColor: colors.text, // Aplica el color de texto del tema
+        headerTintColor: colors.text,
 
-        // Estilos Globales para pestaña activa
         tabBarActiveTintColor: '#FFFFFF',
         tabBarActiveBackgroundColor: colors.primary,
 
-        // Estilos Globales para pestaña inactiva
         tabBarInactiveTintColor: colors.icon,
         tabBarInactiveBackgroundColor: colors.surface,
 
@@ -36,12 +31,9 @@ export default function TabLayout() {
           borderRadius: 15,
           overflow: 'hidden',
         },
-
         tabBarLabelStyle: {
           fontFamily: 'NotoSans_700Bold',
         },
-
-        // Estilo de la barra de navegación principal
         tabBarStyle: {
           backgroundColor: colors.surface,
           height: 60 + insets.bottom,
@@ -50,7 +42,8 @@ export default function TabLayout() {
           elevation: 0,
           paddingBottom: insets.bottom,
         },
-      }}>
+      }}
+    >
       <Tabs.Screen
         name="home"
         options={{
@@ -61,6 +54,18 @@ export default function TabLayout() {
           ),
         }}
       />
+
+      <Tabs.Screen
+        name="reviews"
+        options={{
+          title: 'Reseñas',
+          tabBarIcon: ({ color }) => (
+            <Feather name="message-square" size={24} color={color} />
+          ),
+          headerShown: false,
+        }}
+      />
+
       <Tabs.Screen
         name="reservation"
         options={{
@@ -71,6 +76,7 @@ export default function TabLayout() {
           ),
         }}
       />
+
       <Tabs.Screen
         name="notification"
         options={{
@@ -81,6 +87,7 @@ export default function TabLayout() {
           ),
         }}
       />
+
       <Tabs.Screen
         name="profile"
         options={{

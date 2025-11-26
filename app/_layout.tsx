@@ -4,10 +4,7 @@ import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import 'react-native-reanimated';
 
-import {
-  AppDarkTheme,
-  AppLightTheme,
-} from '@/constants/navigationThemes';
+import { AppDarkTheme, AppLightTheme } from '@/constants/navigationThemes';
 
 import {
   NotoSans_400Regular,
@@ -25,7 +22,6 @@ export const unstable_settings = {
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
-
   const theme = colorScheme === 'dark' ? AppDarkTheme : AppLightTheme;
 
   const [fontsLoaded, fontError] = useFonts({
